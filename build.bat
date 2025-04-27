@@ -15,10 +15,10 @@ if not exist build mkdir build
 pushd build
 
 REM Build dll
-cl.exe /nologo /EHsc /GL /O2 /MT /FC /Zi /W4 /WX /wd4100 /wd4189 /D_CRT_SECURE_NO_WARNINGS ../src/tiny-gizmo.cpp /link /NOLOGO /DLL /OUT:tiny-gizmo.dll /INCREMENTAL:NO
+cl.exe /nologo /EHsc /GL /O2 /MT /FC /Zi /W4 /WX /wd4100 /wd4189 /D_CRT_SECURE_NO_WARNINGS ../src/tiny-gizmo.cpp ../src/tiny-gizmo-c.cpp /link /NOLOGO /DLL /OUT:tiny-gizmo.dll /INCREMENTAL:NO
 
 REM Build lib
-cl.exe /nologo /EHsc /Zi /GL /O2 /MT /FC /W4 /WX /wd4100 /wd4189 /D_CRT_SECURE_NO_WARNINGS /c ../src/tiny-gizmo.cpp
-lib.exe /NOLOGO /OUT:tiny-gizmo.lib tiny-gizmo.obj
+cl.exe /nologo /EHsc /Zi /GL /O2 /MT /FC /W4 /WX /wd4100 /wd4189 /D_CRT_SECURE_NO_WARNINGS /c ../src/tiny-gizmo.cpp ../src/tiny-gizmo-c.cpp
+lib.exe /NOLOGO /OUT:tiny-gizmo.lib tiny-gizmo.obj tiny-gizmo-c.obj
 
 popd

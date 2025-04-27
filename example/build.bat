@@ -16,6 +16,9 @@ pushd build
 
 msbuild ../third-party/glfw-3.1.2/glfw3.vcxproj /p:Configuration=Release
 
-cl.exe -nologo /MD /EHsc /GL /O2 /Zi /FC /I ../third-party/ /I ../third-party/glew /I ../third-party/glfw-3.1.2/include ../example-main.cpp ../../src/tiny-gizmo.cpp /link /IGNORE:4099 user32.lib gdi32.lib opengl32.lib shell32.lib /LIBPATH:../third-party/glfw-3.1.2/intermediate/Release-X64 glfw3.lib /LIBPATH:../third-party/glew/lib/x64/ glew32s.lib  -opt:ref -incremental:no /out:example.exe  
+cl.exe -nologo /MD /EHsc /GL /O2 /Zi /FC /I ../third-party/ /I ../third-party/glew /I ../third-party/glfw-3.1.2/include ../example-main.cpp ../../src/tiny-gizmo.cpp ../../src/tiny-gizmo-c.cpp  /link /IGNORE:4099 user32.lib gdi32.lib opengl32.lib shell32.lib /LIBPATH:../third-party/glfw-3.1.2/intermediate/Release-X64 glfw3.lib /LIBPATH:../third-party/glew/lib/x64/ glew32s.lib  -opt:ref -incremental:no /out:example.exe  
+
+cl.exe -nologo /MD /EHsc /GL /O2 /Zi /FC /I ../third-party/ /I ../third-party/glew /I ../third-party/glfw-3.1.2/include ../example-main-c.cpp ../../src/tiny-gizmo.cpp ../../src/tiny-gizmo-c.cpp /link /IGNORE:4099 user32.lib gdi32.lib opengl32.lib shell32.lib /LIBPATH:../third-party/glfw-3.1.2/intermediate/Release-X64 glfw3.lib /LIBPATH:../third-party/glew/lib/x64/ glew32s.lib  -opt:ref -incremental:no /out:example-c.exe  
+
 
 popd
